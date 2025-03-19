@@ -1,4 +1,4 @@
-package com.example.booksappsurf.presentation.ui.theme
+package com.example.booksappsurf.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
