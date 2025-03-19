@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BooksAppSurf</string>
+    <string name="search_string">Введите название книги</string>
+    <string name="search_button">Поиск</string>
 </resources>
