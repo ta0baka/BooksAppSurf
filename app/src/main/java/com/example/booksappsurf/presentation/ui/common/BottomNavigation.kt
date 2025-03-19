@@ -16,15 +16,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.booksapp.R
 import androidx.compose.ui.unit.sp
+import com.example.booksappsurf.presentation.navigation.Screen
 import com.example.booksappsurf.presentation.theme.BooksAppSurfTheme
 
 @Composable
 fun BottomNavigationBar(
+    currentScreen: Screen, // Текущий экран
     onSearchClick: () -> Unit,
-    onFavoritesClick: () -> Unit
+    onFavoritesClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(80.dp)
             .background(
@@ -41,17 +44,23 @@ fun BottomNavigationBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // Иконка поиска
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.weight(1f)
             ) {
                 IconButton(
                     onClick = onSearchClick,
-                    modifier = Modifier
-                        .size(30.dp)
+                    modifier = Modifier.size(30.dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_searchx3),
+                        painter = painterResource(
+                            id = if (currentScreen == Screen.SEARCH) {
+                                R.drawable.ic_search_blue
+                            } else {
+                                R.drawable.ic_search_gray
+                            }
+                        ),
                         contentDescription = "Search"
                     )
                 }
@@ -59,7 +68,7 @@ fun BottomNavigationBar(
                     text = "Поиск",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Color.LightGray
+                    color = if (currentScreen == Screen.SEARCH) Color(0xFF00ACFF) else Color.LightGray // Цвет текста
                 )
             }
 
@@ -69,11 +78,17 @@ fun BottomNavigationBar(
             ) {
                 IconButton(
                     onClick = onFavoritesClick,
-                    modifier = Modifier
-                        .size(30.dp)
+                    modifier = Modifier.size(30.dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_heartx4),
+                        painter = painterResource(
+                            id = if (currentScreen == Screen.FAVORITES) {
+                                R.drawable.ic_heart_blue
+                            } else {
+                                R.drawable.ic_heart_gray
+                            }
+                        ),
+                        modifier = Modifier.size(48.dp),
                         contentDescription = "Favorites"
                     )
                 }
@@ -81,7 +96,7 @@ fun BottomNavigationBar(
                     text = "Избранные",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Color.LightGray
+                    color = if (currentScreen == Screen.FAVORITES) Color(0xFF00ACFF) else Color.LightGray // Цвет текста
                 )
             }
         }
@@ -93,6 +108,7 @@ fun BottomNavigationBar(
 fun BottomNavigationBarPreview() {
     BooksAppSurfTheme {
         BottomNavigationBar(
+            currentScreen = Screen.SEARCH,
             onSearchClick = { println("Search clicked") },
             onFavoritesClick = { println("Favorites clicked") }
         )

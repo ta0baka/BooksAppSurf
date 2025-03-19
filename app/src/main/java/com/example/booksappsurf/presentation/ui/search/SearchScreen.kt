@@ -13,17 +13,18 @@ import com.example.booksappsurf.presentation.theme.BooksAppSurfTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.example.booksappsurf.presentation.navigation.Screen
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(onFavoritesClick: () -> Unit) {
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
+                currentScreen = Screen.SEARCH,
                 onSearchClick = { println("Search clicked") },
-                onFavoritesClick = { println("Favorites clicked") }
+                onFavoritesClick = onFavoritesClick
             )
         }
     ) { innerPadding ->
@@ -65,6 +66,6 @@ fun SearchScreen() {
 @Composable
 fun SearchScreenPreview() {
     BooksAppSurfTheme {
-        SearchScreen()
+        SearchScreen(){}
     }
 }
