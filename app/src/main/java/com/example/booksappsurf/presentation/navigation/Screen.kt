@@ -1,6 +1,6 @@
 package com.example.booksappsurf.presentation.navigation
 
-enum class Screen {
-    SEARCH,
-    FAVORITES
+enum class Screen(val route: String) {
+    SEARCH("search"),
+    FAVORITES("favorites")
 }

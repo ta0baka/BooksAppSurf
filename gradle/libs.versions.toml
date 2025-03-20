@@ -8,17 +8,27 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
+kotlinxMetadataJvm = "0.5.0"
+javapoet = "1.13.0"
+coil = "2.1.0"
+coilVersion = "2.1.0"
 
 # Версии для Retrofit, Hilt и Coroutines
 retrofit2Version = "2.11.0"
 okhttp3Version = "4.9.3"
-hiltVersion = "2.51.1"
+hiltVersion = "2.52"
 hiltNavigationComposeVersion = "1.2.0"
 coroutinesVersion = "1.10.1"
 coroutinesLifecycleVersion = "2.8.7"
 navigationCompose = "2.8.8"
+roomKtx = "2.6.1"
+room = "2.6.1"
+appcompat = "1.7.0"
 
 [libraries]
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+kotlinx-metadata-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-metadata-jvm", version.ref = "kotlinxMetadataJvm" }
+javapoet = { module = "com.squareup:javapoet", version.ref = "javapoet" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -34,6 +44,9 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
+
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 # Retrofit
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2Version" }
 retrofit2GsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit2Version" }
@@ -56,6 +69,8 @@ hiltCompiler = { group = "com.google.dagger", name = "hilt-compiler", version.re
 
 # Navigation
 navigationCompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

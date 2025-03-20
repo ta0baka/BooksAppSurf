@@ -2,12 +2,13 @@ package com.example.booksappsurf.domain.usecase
 
 import com.example.booksappsurf.domain.model.Book
 import com.example.booksappsurf.domain.repository.BookRepository
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
-class RemoveFavoriteBookUseCase @Inject constructor(
+class GetFavoriteBooksUseCase @Inject constructor(
     private val repository: BookRepository
 ) {
-    suspend fun remove(book: Book) {
-        repository.removeFavorite(book)
+    suspend fun get(): List<Book> {
+        return repository.getFavoriteBooks().first()
     }
 }

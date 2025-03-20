@@ -8,6 +8,10 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
 }
 
+hilt {
+    enableAggregatingTask = false
+}
+
 android {
     namespace = "com.example.booksapp"
     compileSdk = 35
@@ -31,19 +35,23 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
+    // Core libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -52,6 +60,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.appcompat)
+
+    // Testing libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,28 +72,31 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Hilt
+    // Hilt for dependency injection
     implementation(libs.hilt)
     implementation(libs.hiltNavigationCompose)
     kapt(libs.hiltCompiler)
 
-    // Retrofit
+    // Retrofit for network calls
     implementation(libs.retrofit2)
     implementation(libs.retrofit2GsonConverter)
 
-    // OkHttp
+    // OkHttp for HTTP requests and logging
     implementation(libs.okhttp3)
     implementation(libs.okhttp3Logging)
 
-    // Coroutines
+    // Coroutines for asynchronous programming
     implementation(libs.coroutinesCore)
     implementation(libs.coroutinesAndroid)
 
-    // Coroutine Lifecycle Scopes
+    // Coroutine Lifecycle Scopes for view model integration
     implementation(libs.lifecycleViewModel)
 
-    // Navigation
+    // Navigation for composable screens
     implementation(libs.navigationCompose)
+
+    // Coil for image loading
+    implementation(libs.coil.compose)
 }
 
 kapt {

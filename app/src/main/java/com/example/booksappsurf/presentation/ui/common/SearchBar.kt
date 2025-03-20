@@ -27,7 +27,6 @@ import com.example.booksappsurf.presentation.theme.BooksAppSurfTheme
 import com.example.booksappsurf.presentation.theme.LightGray2
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.ui.input.pointer.pointerInput
 
 @Composable
 fun SearchBar(
@@ -42,7 +41,6 @@ fun SearchBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp)
-            .padding(5.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxSize(),
@@ -61,9 +59,7 @@ fun SearchBar(
                     Image(
                         painter = painterResource(id = R.drawable.ic_search_gray),
                         contentDescription = "Search",
-                        modifier = Modifier
-                            .size(24.dp)
-                            .pointerInput(Unit) { }
+                        modifier = Modifier.size(24.dp)
                     )
 
                     Spacer(modifier = Modifier.width(8.dp))

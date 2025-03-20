@@ -21,7 +21,7 @@ import com.example.booksappsurf.presentation.theme.BooksAppSurfTheme
 
 @Composable
 fun BottomNavigationBar(
-    currentScreen: Screen, // Текущий экран
+    currentScreen: Screen,
     onSearchClick: () -> Unit,
     onFavoritesClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -44,7 +44,6 @@ fun BottomNavigationBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Иконка поиска
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.weight(1f)
@@ -68,7 +67,7 @@ fun BottomNavigationBar(
                     text = "Поиск",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = if (currentScreen == Screen.SEARCH) Color(0xFF00ACFF) else Color.LightGray // Цвет текста
+                    color = if (currentScreen == Screen.SEARCH) Color(0xFF00ACFF) else Color.LightGray
                 )
             }
 
@@ -93,10 +92,10 @@ fun BottomNavigationBar(
                     )
                 }
                 Text(
-                    text = "Избранные",
+                    text = "Избранное",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = if (currentScreen == Screen.FAVORITES) Color(0xFF00ACFF) else Color.LightGray // Цвет текста
+                    color = if (currentScreen == Screen.FAVORITES) Color(0xFF00ACFF) else Color.LightGray
                 )
             }
         }
